@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
+
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
@@ -11,6 +12,7 @@ const  swaggerDocument = require('./swagger');
 const user = require('./routes/user.routes');
 const userProduct = require('./routes/users.products.routes');
 const auth = require('./routes/auth.routes');
+const product = require('./routes/product.routes');
 
 app.use(cors({
   origin: '*'
@@ -21,6 +23,7 @@ app.use('/api/auth', auth);
 app.use('/api/users', user);
 app.use('/api/user-product', userProduct);
 app.use('/api/auth', auth);
+app.use('/api/products', product);
 
 app.use('/', express.static('files'))
 
